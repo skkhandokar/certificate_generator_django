@@ -1,0 +1,26 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Display</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-red-400 ">
+    <h1 class="flex justify-center font-bold text-Emerald-400 text-[40px]">Certificate Display</h1><br><br>
+    <img  class="flex justify-center mx-auto" src="{{ certificate.image.url }}" alt="Certificate Image">
+    <!-- You can also display other information about the certificate if needed -->
+    <br><br>
+
+    <div class="md:flex md:items-center">
+        <div class="md:w-1/3"></div>
+        <div class="md:w-2/3">
+        
+          <a class="shadow bg-teal-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" href="{% url 'download_certificate_pdf' certificate_id=certificate.pk %}" download>Download Certificate PDF</a>
+          <a class="shadow bg-teal-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" href="{% url 'generate_certificate_pdf'  %}" >Create Certificate</a>
+        </div>
+      </div>
+
+
+</body>
+</html>

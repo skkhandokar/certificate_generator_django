@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>verificationt</title>
+</head>
+<body>
+
+    <div class="bg-white-500">
+        <h2 class="flex mt-[40px] mb-[40px] justify-center font-bold text-Emerald-400 text-[40px]">verification a certificate</h2>
+        <br>
+{% if ok %}
+{% if is_valid_certificate %}
+        <div class="bg-green-100 rounded-md p-3 flex">
+            <svg
+                class="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
+                <path d="M0 0h24v24H0z" stroke="none" />
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 12l2 2 4-4" />
+            </svg>
+        
+            <div class="text-green-700 mb-[12px]">
+                <div class=" font-bold text-xl">The certificate is valid!</div>        
+            </div>
+
+        </div>
+        <br>
+ {% else %}
+            <div class="bg-red-100 rounded-md p-3 flex">
+                <svg class="stroke-2 stroke-current text-red-600 h-8 w-8 mr-2 flex-shrink-0" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H6.01M6 16H6.01M6 12H18C20.2091 12 22 10.2091 22 8C22 5.79086 20.2091 4 18 4H6C3.79086 4 2 5.79086 2 8C2 10.2091 3.79086 12 6 12ZM6 12C3.79086 12 2 13.7909 2 16C2 18.2091 3.79086 20 6 20H14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17 16L22 21M22 16L17 21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
+                <div class="text-red-500 mb-[12px]">
+                    <div class=" font-bold text-xl">The certificate is invalid!</div>        
+                </div>
+
+            </div>
+            <br>
+{% endif %}
+{% endif %}
+<form method="post">
+    {% csrf_token %}     
+<div class="mb-6">
+    <label for="success" class="ml-[300px] block mb-2 text-sm font-medium text-green-700 dark:text-green-500">Verify a certificate</label>
+    <input type="text" required name="certificate_id" id="success" class="bg-green-50 border ml-[300px] mr-[500px] text-green-900  w-full dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 text-sm rounded-lg focus:ring-green-500 focus:border-green-500  p-2.5 dark:bg-gray-700 dark:border-red-500" placeholder="Enter Certificate ID">
+    <p class="mt-2 text-sm text-black-600 dark:text-black-500 ml-[300px]"><span class="font-medium">The Certificate ID can be found at the top of each certificate.
+    </span> </p>
+  </div>
+ 
+  <div class="flex justify-center ">
+      <button class="flex justify-center  shadow bg-teal-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">VALIDATE</button>
+  
+   </div>
+ </form>
+
+    </div>
+    
+</body>
+</html>
